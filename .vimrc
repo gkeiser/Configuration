@@ -1,4 +1,10 @@
+" Pathogen
+filetype off " Pathogen needs to run before plugin indent on
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags() " generate helptags for everything in 'runtimepath'
+"filetype plugin indent on
 call pathogen#infect()
+call pathogen#helptags()
 syntax on
 filetype plugin indent on
 
@@ -29,7 +35,7 @@ autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 " improve autocomplete menu color
 highlight Pmenu ctermbg=230 gui=bold
 set t_CO=256
-:colorscheme desert256
+:colorscheme desert
 let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
 nmap <silent> <c-n> :NERDTreeToggle<CR>
 set number

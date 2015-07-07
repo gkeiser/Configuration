@@ -1,43 +1,37 @@
-" Pathogen
-filetype off " Pathogen needs to run before plugin indent on
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags() " generate helptags for everything in 'runtimepath'
-"filetype plugin indent on
-call pathogen#infect()
-call pathogen#helptags()
+execute pathogen#infect()
 syntax on
+set nu
 filetype plugin indent on
-
-source $VIMRUNTIME/mswin.vim
-" Necessary for lot of cool vim things
-set nocompatible
-set tabstop=2
-set smarttab
-set shiftwidth=2
-set autoindent
+au FileType go nmap <Leader>dt <Plug>
+set tabstop=4
+set shiftwidth=4
 set expandtab
-set wildmode=longest,list,full
-set wildmenu
-
-" Backspace should delete
-set backspace=2 " make backspace work like most other apps
-:nmap ; :
-
-" For HTML
-autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-
-" For Ruby
-autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
-autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
-autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
-autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
-
-" improve autocomplete menu color
-highlight Pmenu ctermbg=230 gui=bold
-set t_CO=256
-:colorscheme desert
-let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
-nmap <silent> <c-n> :NERDTreeToggle<CR>
-set number
-map ,r :!ruby %
-map ,n :!node %
+" change the mapleader from \ to ,
+let mapleader=","
+let g:go_fmt_command = "goimports"
+"Show a list of interfaces which is implemented by the type under your cursor
+"with <leader>s
+"au FileType go nmap <Leader>s <Plug>(go-implements)
+""Show type info for the word under your cursor with <leader>i (useful if you have disabled auto showing type info via g:go_auto_type_info)
+au FileType go nmap <Leader>i <Plug>(go-info)
+"Open the relevant Godoc for the word under the cursor with <leader>gd or open
+"it vertically with <leader>gv
+"au FileType go nmap <Leader>gd <Plug>(go-doc)
+"au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
+""Or open the Godoc in browser
+au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
+"Run commands, such as go run with <leader>r for the current file or go build
+"and go test for the current package with <leader>b and <leader>t. Display a
+"beautiful annotated source code to see which functions are covered with
+"<leader>c.
+au FileType go nmap <leader>r <Plug>(go-run)
+au FileType go nmap <leader>b <Plug>(go-build)
+au FileType go nmap <leader>t <Plug>(go-test)
+au FileType go nmap <leader>co <Plug>(go-coverage)
+""By default the mapping gd is enabled which opens the target identifier in
+"current buffer. You can also open the definition/declaration in a new vertical, horizontal or tab for the word under your cursor:
+au FileType go nmap <Leader>ds <Plug>(go-def-split)
+au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
+au FileType go nmap <Leader>dt <Plug>(go-def-tab)
+"Rename the identifier under the cursor to a new name
+"au FileType go nmap <Leader>e <Plug>(go-rename)

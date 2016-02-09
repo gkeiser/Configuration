@@ -33,5 +33,8 @@ au FileType go nmap <leader>co <Plug>(go-coverage)
 au FileType go nmap <Leader>ds <Plug>(go-def-split)
 au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
 au FileType go nmap <Leader>dt <Plug>(go-def-tab)
+" Ali: to indent json files on save
+autocmd FileType json autocmd BufWritePre <buffer> %!python -m json.tool
 "Rename the identifier under the cursor to a new name
 "au FileType go nmap <Leader>e <Plug>(go-rename)
+command Js :%!python -mjson.tool

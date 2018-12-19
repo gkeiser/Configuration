@@ -2,6 +2,7 @@ execute pathogen#infect()
 syntax on
 set nu
 filetype plugin indent on
+
 au FileType go nmap <Leader>dt <Plug>
 set tabstop=4
 set shiftwidth=4
@@ -37,4 +38,13 @@ au FileType go nmap <Leader>dt <Plug>(go-def-tab)
 autocmd FileType json autocmd BufWritePre <buffer> %!python -m json.tool
 "Rename the identifier under the cursor to a new name
 "au FileType go nmap <Leader>e <Plug>(go-rename)
+
+" Trigger configuration. Do not use <tab> if you use
+" https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsSnippetsDir        = '~/.vim/snippets/'
+"let g:UltiSnipsSnippetDirectories = ['UltiSnips', 'snippets']
+
+let g:UltiSnipsExpandTrigger       = '<C-CR>'
+let g:UltiSnipsJumpForwardTrigger  = '<A-d>'
+let g:UltiSnipsJumpBackwardTrigger = '<A-a>'
 command Js :%!python -mjson.tool

@@ -1,0 +1,47 @@
+// Place your key bindings in this file to overwrite the defaults
+[
+    { "key": "ctrl+o",             "command": "editor.action.goToDeclaration",
+                                     "when": "editorTextFocus" },
+    { "key": "alt+f7",             "command": "editor.action.referenceSearch.trigger",
+                                     "when": "editorTextFocus" },
+    { "key": "ctrl+shift+t",  "comand": "go.test.package"},
+    { "key": "ctrl+shift+n",                "command": "workbench.action.quickOpen" },
+    {
+        "key": "ctrl+f12",
+        "command": "workbench.action.gotoSymbol"
+    },
+    {
+        "key": "ctrl+shift+u",
+        "command": "editor.action.quickFix",
+        "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+.",
+        "command": "-editor.action.quickFix",
+        "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+shift+i",
+        "command": "go.import.add"
+    },
+    {
+        "key": "shift+tab shift+8",
+        "command": "workbench.action.search.toggleQueryDetails",
+        "when": "searchViewletVisible"
+    },
+    {
+        "key": "ctrl+shift+j",
+        "command": "-workbench.action.search.toggleQueryDetails",
+        "when": "searchViewletVisible"
+    },
+    {
+        "key": "ctrl+shift+j",
+        "command": "editor.action.formatDocument",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+shift+i",
+        "command": "-editor.action.formatDocument",
+        "when": "editorTextFocus && !editorReadonly"
+    }
+]
